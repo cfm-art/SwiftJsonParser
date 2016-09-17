@@ -25,22 +25,22 @@ class SwiftJsonParser_JsonValuesTests: XCTestCase {
     
     // json文字列表現のエスケープ
     func testStringJsonValue() {
-        // \ " \/ \n \r \b \f \t \uXXXX
+        // \ " / \n \r \b \f \t \uXXXX
         
         var s = StringValue("\\test\"test/")
-        XCTAssertEqual(s.string(), "\\\\test\\\"test\\/")
+        XCTAssertEqual(s.jsonString(), "\"\\\\test\\\"test\\/\"")
         
         s = StringValue("\n\r\ttest")
-        XCTAssertEqual(s.string(), "\\n\\r\\ttest")
+        XCTAssertEqual(s.jsonString(), "\"\\n\\r\\ttest\"")
         
         s = StringValue("\u{0008}\u{000c}")
-        XCTAssertEqual(s.string(), "\\b\\f")
+        XCTAssertEqual(s.jsonString(), "\"\\b\\f\"")
         
         s = StringValue("\\uabcd")
-        XCTAssertEqual(s.string(), "\\uabcd")
+        XCTAssertEqual(s.jsonString(), "\"\\uabcd\"")
 
         s = StringValue("\\uabcg")
-        XCTAssertEqual(s.string(), "\\\\uabcg")
+        XCTAssertEqual(s.jsonString(), "\"\\\\uabcg\"")
     }
     
     /// string -> number

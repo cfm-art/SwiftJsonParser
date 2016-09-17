@@ -27,6 +27,7 @@
 		6EED82491D8D293F004B8B98 /* INullValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED82481D8D293F004B8B98 /* INullValue.swift */; };
 		6EED824B1D8D2954004B8B98 /* IArrayValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED824A1D8D2954004B8B98 /* IArrayValue.swift */; };
 		6EED824D1D8D2969004B8B98 /* IObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED824C1D8D2969004B8B98 /* IObjectValue.swift */; };
+		6EED82521D8D70A9004B8B98 /* JsonEscaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED82511D8D70A9004B8B98 /* JsonEscaper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		6EED82481D8D293F004B8B98 /* INullValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INullValue.swift; path = JsonValues/Interfaces/INullValue.swift; sourceTree = "<group>"; };
 		6EED824A1D8D2954004B8B98 /* IArrayValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IArrayValue.swift; path = JsonValues/Interfaces/IArrayValue.swift; sourceTree = "<group>"; };
 		6EED824C1D8D2969004B8B98 /* IObjectValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IObjectValue.swift; path = JsonValues/Interfaces/IObjectValue.swift; sourceTree = "<group>"; };
+		6EED82511D8D70A9004B8B98 /* JsonEscaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonEscaper.swift; path = Utility/JsonEscaper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		6EE2755C1D86BF1F00419FC4 /* JsonValues */ = {
 			isa = PBXGroup;
 			children = (
+				6EED82501D8D708F004B8B98 /* Utility */,
 				6EED823F1D8D276A004B8B98 /* Concletes */,
 				6EED823E1D8D2760004B8B98 /* Interfaces */,
 				6EED823D1D8D2425004B8B98 /* Erros */,
@@ -183,6 +186,14 @@
 				6EE275691D86C04700419FC4 /* ObjectValue.swift */,
 			);
 			name = Concletes;
+			sourceTree = "<group>";
+		};
+		6EED82501D8D708F004B8B98 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6EED82511D8D70A9004B8B98 /* JsonEscaper.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				6EED824B1D8D2954004B8B98 /* IArrayValue.swift in Sources */,
 				6EE275681D86C03200419FC4 /* ArrayValue.swift in Sources */,
 				6EE2756D1D86C19500419FC4 /* JsonParser.swift in Sources */,
+				6EED82521D8D70A9004B8B98 /* JsonEscaper.swift in Sources */,
 				6EE275621D86BFDB00419FC4 /* NumberValue.swift in Sources */,
 				6EED82491D8D293F004B8B98 /* INullValue.swift in Sources */,
 				6EE275641D86BFF400419FC4 /* BooleanValue.swift in Sources */,

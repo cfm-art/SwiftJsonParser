@@ -86,7 +86,6 @@ public class StringValue
     /// - returns : Jsonでの文字列表現
     public func jsonString() -> String
     {
-        // XXX: エスケープ対応 => 別クラスへ
-        return "\"" + value_ + "\""
+        return "\"" + JsonEscaper.escape(value_) + "\""
     }
 }
