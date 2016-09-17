@@ -13,4 +13,5 @@ import Foundation
 public protocol IStringValue
     : JsonValue
 {
+    func string() -> String
 }

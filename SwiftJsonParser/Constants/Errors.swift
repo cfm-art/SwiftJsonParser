@@ -11,6 +11,8 @@ import Foundation
 /// エラー
 public enum Errors : ErrorType
 {
+    case NoError
+    
     case NotNull
     case NotArray
     case NotObject

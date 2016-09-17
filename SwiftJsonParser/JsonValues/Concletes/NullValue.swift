@@ -71,6 +71,12 @@ public class NullValue
         return self
     }
 
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString() -> String
+    {
+        return "null"
+    }
     
     //--
     public func string() -> String { return "" }

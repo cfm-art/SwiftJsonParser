@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6EE275461D86BC0800419FC4 /* SwiftJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE275451D86BC0800419FC4 /* SwiftJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE2754D1D86BC0800419FC4 /* SwiftJsonParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE275421D86BC0800419FC4 /* SwiftJsonParser.framework */; };
-		6EE275521D86BC0800419FC4 /* SwiftJsonParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE275511D86BC0800419FC4 /* SwiftJsonParserTests.swift */; };
+		6EE275521D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE275511D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift */; };
 		6EE2755E1D86BF5200419FC4 /* JsonValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2755D1D86BF5200419FC4 /* JsonValue.swift */; };
 		6EE275601D86BF8D00419FC4 /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2755F1D86BF8D00419FC4 /* StringValue.swift */; };
 		6EE275621D86BFDB00419FC4 /* NumberValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE275611D86BFDB00419FC4 /* NumberValue.swift */; };
@@ -44,7 +44,7 @@
 		6EE275451D86BC0800419FC4 /* SwiftJsonParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftJsonParser.h; sourceTree = "<group>"; };
 		6EE275471D86BC0800419FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE2754C1D86BC0800419FC4 /* SwiftJsonParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftJsonParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EE275511D86BC0800419FC4 /* SwiftJsonParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJsonParserTests.swift; sourceTree = "<group>"; };
+		6EE275511D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJsonParserTests_JsonValues.swift; sourceTree = "<group>"; };
 		6EE275531D86BC0800419FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE2755D1D86BF5200419FC4 /* JsonValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonValue.swift; path = JsonValues/JsonValue.swift; sourceTree = "<group>"; };
 		6EE2755F1D86BF8D00419FC4 /* StringValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringValue.swift; path = JsonValues/Concletes/StringValue.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		6EE275501D86BC0800419FC4 /* SwiftJsonParserTests */ = {
 			isa = PBXGroup;
 			children = (
-				6EE275511D86BC0800419FC4 /* SwiftJsonParserTests.swift */,
+				6EE275511D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift */,
 				6EE275531D86BC0800419FC4 /* Info.plist */,
 			);
 			path = SwiftJsonParserTests;
@@ -317,7 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EE275521D86BC0800419FC4 /* SwiftJsonParserTests.swift in Sources */,
+				6EE275521D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

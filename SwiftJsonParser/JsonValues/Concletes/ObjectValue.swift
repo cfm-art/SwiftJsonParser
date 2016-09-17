@@ -67,8 +67,7 @@ public class ObjectValue
     /// - returns : 文字列表現
     public func toStringValue() -> IStringValue
     {
-        // TODO: 実装
-        return StringValue("")
+        return StringValue(jsonString())
     }
     
     /// 数値(Double)として取得
@@ -98,7 +97,7 @@ public class ObjectValue
     /// - returns : 配列
     public func toArrayValue() -> IArrayValue
     {
-        return ErrorValue(error: Errors.NotArray)
+        return ArrayValue(values_.flatMap { $1 })
     }
     
     /// オブジェクト{}として取得
@@ -109,5 +108,24 @@ public class ObjectValue
         return self
     }
     
-    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString() -> String
+    {
+        let result = NSMutableString(capacity: values_.count * 12)
+        result.appendString("{")
+        values_.forEach {
+            result.appendString("\"")
+            result.appendString($0.0);
+            result.appendString("\":")
+            result.appendString($0.1.jsonString())
+            result.appendString(",")
+        }
+        if result.hasSuffix(",") {
+            result.replaceCharactersInRange(NSRange(location: result.length - 1, length: 1), withString: "}")
+        } else {
+            result.appendString("}")
+        }
+        return result as String
+    }
 }

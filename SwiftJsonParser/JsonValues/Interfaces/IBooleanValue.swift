@@ -13,4 +13,5 @@ import Foundation
 public protocol IBooleanValue
     : JsonValue
 {
+    func boolean() -> Bool
 }

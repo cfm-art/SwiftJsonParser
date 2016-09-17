@@ -81,4 +81,12 @@ public class StringValue
     {
         return ErrorValue(error: Errors.NotObject)
     }
+    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString() -> String
+    {
+        // XXX: エスケープ対応 => 別クラスへ
+        return "\"" + value_ + "\""
+    }
 }

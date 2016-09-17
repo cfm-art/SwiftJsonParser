@@ -24,6 +24,18 @@ public class ArrayValue
     }
     
     ///
+    public override init()
+    {
+    }
+    
+    ///
+    /// - parameter array:
+    public init(_ array: [JsonValue])
+    {
+        values_ = array
+    }
+    
+    ///
     /// - returns : 
     public func array() -> [JsonValue]
     {
@@ -66,8 +78,7 @@ public class ArrayValue
     /// - returns : 文字列表現
     public func toStringValue() -> IStringValue
     {
-        // TODO: 実装
-        return StringValue("")
+        return StringValue(jsonString())
     }
     
     /// 数値(Double)として取得
@@ -105,7 +116,23 @@ public class ArrayValue
     /// - returns : オブジェクト
     public func toObjectValue() -> IObjectValue
     {
-        return ErrorValue(error: Errors.NotObject)
+        let o = ObjectValue()
+        values_.enumerate().forEach { o.add($0.index.description, value: $0.element) }
+        return o
     }
-    
+
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString() -> String
+    {
+        let result = NSMutableString(capacity: values_.count * 6)
+        result.appendString("[")
+        values_.forEach { result.appendString($0.jsonString()); result.appendString(",") }
+        if result.hasSuffix(",") {
+            result.replaceCharactersInRange(NSRange(location: result.length - 1, length: 1), withString: "]")
+        } else {
+            result.appendString("]")
+        }
+        return result as String
+    }
 }

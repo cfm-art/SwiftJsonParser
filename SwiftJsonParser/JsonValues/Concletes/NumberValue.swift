@@ -78,4 +78,12 @@ public class NumberValue
     {
         return ErrorValue(error: Errors.NotObject)
     }
+    
+    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString() -> String
+    {
+        return value_.description
+    }
 }

@@ -37,6 +37,11 @@
                BlueprintName = "SwiftJsonParserTests"
                ReferencedContainer = "container:SwiftJsonParser.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "SwiftJsonParserTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -31,18 +31,19 @@ public protocol JsonValue
     /// nil
     /// null値でないものからの変換はエラーを返却
     /// - returns : nil
-    /// - throws : nullでない
     func toNullValue() -> INullValue
 
     /// 配列[]として取得
     /// 配列以外からの変換はエラーを返却
     /// - returns : 配列
-    /// - throws : 配列でない
     func toArrayValue() -> IArrayValue
 
     /// オブジェクト{}として取得
     /// オブジェクト以外からの変換はエラーを返却
     /// - returns : オブジェクト
-    /// - throws : オブジェクトでない
     func toObjectValue() -> IObjectValue
+    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    func jsonString() -> String
 }
