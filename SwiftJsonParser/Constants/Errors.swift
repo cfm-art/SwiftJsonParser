@@ -13,5 +13,10 @@ public enum Errors : ErrorType
 {
     case NotNull
     case NotArray
-    case NoObject
+    case NotObject
+    case NotNumber
+    
+    case NegativeIndex
+    case IndexOutOfBounds
+    case KeyNotFound
 }

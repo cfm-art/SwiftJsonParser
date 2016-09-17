@@ -24,4 +24,6 @@ public enum ValueType : Int
     case kBoolean
     ///
     case kNull
+    ///
+    case kError
 }
