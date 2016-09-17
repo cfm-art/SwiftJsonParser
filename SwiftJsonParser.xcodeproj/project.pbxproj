@@ -28,6 +28,8 @@
 		6EED824B1D8D2954004B8B98 /* IArrayValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED824A1D8D2954004B8B98 /* IArrayValue.swift */; };
 		6EED824D1D8D2969004B8B98 /* IObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED824C1D8D2969004B8B98 /* IObjectValue.swift */; };
 		6EED82521D8D70A9004B8B98 /* JsonEscaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED82511D8D70A9004B8B98 /* JsonEscaper.swift */; };
+		6EED82541D8D8340004B8B98 /* ParseOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED82531D8D8340004B8B98 /* ParseOption.swift */; };
+		6EED82561D8D92E3004B8B98 /* SwiftJsonParserTests_JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EED82551D8D92E3004B8B98 /* SwiftJsonParserTests_JsonParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		6EED824A1D8D2954004B8B98 /* IArrayValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IArrayValue.swift; path = JsonValues/Interfaces/IArrayValue.swift; sourceTree = "<group>"; };
 		6EED824C1D8D2969004B8B98 /* IObjectValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IObjectValue.swift; path = JsonValues/Interfaces/IObjectValue.swift; sourceTree = "<group>"; };
 		6EED82511D8D70A9004B8B98 /* JsonEscaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonEscaper.swift; path = Utility/JsonEscaper.swift; sourceTree = "<group>"; };
+		6EED82531D8D8340004B8B98 /* ParseOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseOption.swift; path = Constants/ParseOption.swift; sourceTree = "<group>"; };
+		6EED82551D8D92E3004B8B98 /* SwiftJsonParserTests_JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftJsonParserTests_JsonParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 			children = (
 				6EE275511D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift */,
 				6EE275531D86BC0800419FC4 /* Info.plist */,
+				6EED82551D8D92E3004B8B98 /* SwiftJsonParserTests_JsonParser.swift */,
 			);
 			path = SwiftJsonParserTests;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			children = (
 				6EE2756F1D86C54600419FC4 /* Errors.swift */,
 				6EE275711D86C58200419FC4 /* ValueType.swift */,
+				6EED82531D8D8340004B8B98 /* ParseOption.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				6EED82471D8D291F004B8B98 /* IBooleanValue.swift in Sources */,
 				6EED82431D8D28B8004B8B98 /* ErrorValue.swift in Sources */,
 				6EE2756A1D86C04700419FC4 /* ObjectValue.swift in Sources */,
+				6EED82541D8D8340004B8B98 /* ParseOption.swift in Sources */,
 				6EED82451D8D28FA004B8B98 /* INumberValue.swift in Sources */,
 				6EE275661D86C00D00419FC4 /* NullValue.swift in Sources */,
 				6EE275721D86C58200419FC4 /* ValueType.swift in Sources */,
@@ -330,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE275521D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift in Sources */,
+				6EED82561D8D92E3004B8B98 /* SwiftJsonParserTests_JsonParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

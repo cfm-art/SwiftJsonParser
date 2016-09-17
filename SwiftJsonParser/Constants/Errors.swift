@@ -9,7 +9,8 @@
 import Foundation
 
 /// エラー
-public enum Errors : ErrorType
+@objc
+public enum Errors : Int
 {
     case NoError
     
@@ -21,4 +22,6 @@ public enum Errors : ErrorType
     case NegativeIndex
     case IndexOutOfBounds
     case KeyNotFound
+    
+    case InvalidFormat
 }
