@@ -65,21 +65,21 @@ public class ObjectValue
     
     /// 文字列として取得
     /// - returns : 文字列表現
-    public func toStringValue() -> IStringValue
+    public func asString() -> IStringValue
     {
         return StringValue(jsonString())
     }
     
     /// 数値(Double)として取得
     /// - returns : 数値表現
-    public func toNumberValue() -> INumberValue
+    public func asNumber() -> INumberValue
     {
         return ErrorValue(error: .NotNumber)
     }
     
     /// 真偽値(true/false)として取得
     /// - returns : 真偽値表現
-    public func toBooleanValue() -> IBooleanValue
+    public func asBoolean() -> IBooleanValue
     {
         return BooleanValue(values_.count > 0)
     }
@@ -87,7 +87,7 @@ public class ObjectValue
     /// nil
     /// null値でないものからの変換はエラーを返却
     /// - returns : nil
-    public func toNullValue() -> INullValue
+    public func asNull() -> INullValue
     {
         return ErrorValue(error: Errors.NotNull)
     }
@@ -95,7 +95,7 @@ public class ObjectValue
     /// 配列[]として取得
     /// 配列以外からの変換はエラーを返却
     /// - returns : 配列
-    public func toArrayValue() -> IArrayValue
+    public func asArray() -> IArrayValue
     {
         return ArrayValue(values_.flatMap { $1 })
     }
@@ -103,7 +103,7 @@ public class ObjectValue
     /// オブジェクト{}として取得
     /// オブジェクト以外からの変換はエラーを返却
     /// - returns : オブジェクト
-    public func toObjectValue() -> IObjectValue
+    public func asObject() -> IObjectValue
     {
         return self
     }

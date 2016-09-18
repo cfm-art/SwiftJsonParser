@@ -36,21 +36,21 @@ public class NumberValue
     
     /// 文字列として取得
     /// - returns : 文字列表現
-    public func toStringValue() -> IStringValue
+    public func asString() -> IStringValue
     {
         return StringValue(value_.description)
     }
     
     /// 数値(Double)として取得
     /// - returns : 数値表現
-    public func toNumberValue() -> INumberValue
+    public func asNumber() -> INumberValue
     {
         return self
     }
     
     /// 真偽値(true/false)として取得
     /// - returns : 真偽値表現
-    public func toBooleanValue() -> IBooleanValue
+    public func asBoolean() -> IBooleanValue
     {
         return BooleanValue(value_ != 0)
     }
@@ -58,7 +58,7 @@ public class NumberValue
     /// nil
     /// null値でないものからの変換はエラーを返却
     /// - returns : nil
-    public func toNullValue() -> INullValue
+    public func asNull() -> INullValue
     {
         return ErrorValue(error: Errors.NotNull)
     }
@@ -66,7 +66,7 @@ public class NumberValue
     /// 配列[]として取得
     /// 配列以外からの変換はエラーを返却
     /// - returns : 配列
-    public func toArrayValue() -> IArrayValue
+    public func asArray() -> IArrayValue
     {
         return ErrorValue(error: Errors.NotArray)
     }
@@ -74,7 +74,7 @@ public class NumberValue
     /// オブジェクト{}として取得
     /// オブジェクト以外からの変換はエラーを返却
     /// - returns : オブジェクト
-    public func toObjectValue() -> IObjectValue
+    public func asObject() -> IObjectValue
     {
         return ErrorValue(error: Errors.NotObject)
     }

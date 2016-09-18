@@ -18,30 +18,30 @@ public protocol JsonValue
     
     /// 文字列として取得
     /// - returns : 文字列表現
-    func toStringValue() -> IStringValue
+    func asString() -> IStringValue
 
     /// 数値(Double)として取得
     /// - returns : 数値表現
-    func toNumberValue() -> INumberValue
+    func asNumber() -> INumberValue
 
     /// 真偽値(true/false)として取得
     /// - returns : 真偽値表現
-    func toBooleanValue() -> IBooleanValue
+    func asBoolean() -> IBooleanValue
 
     /// nil
     /// null値でないものからの変換はエラーを返却
     /// - returns : nil
-    func toNullValue() -> INullValue
+    func asNull() -> INullValue
 
     /// 配列[]として取得
     /// 配列以外からの変換はエラーを返却
     /// - returns : 配列
-    func toArrayValue() -> IArrayValue
+    func asArray() -> IArrayValue
 
     /// オブジェクト{}として取得
     /// オブジェクト以外からの変換はエラーを返却
     /// - returns : オブジェクト
-    func toObjectValue() -> IObjectValue
+    func asObject() -> IObjectValue
     
     /// Jsonでの文字列表現を取得する
     /// - returns : Jsonでの文字列表現

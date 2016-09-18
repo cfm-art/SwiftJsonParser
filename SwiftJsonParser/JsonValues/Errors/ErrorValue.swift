@@ -37,7 +37,7 @@ public class ErrorValue
     ///
     /// - parameter error :
     /// - returns
-    public static func of(_ error: JsonValue) -> Errors
+    public static func of(error: JsonValue) -> Errors
     {
         return error.typeOf() == .kError
                     ? (error as! ErrorValue).error()

@@ -101,7 +101,7 @@ public class JsonParser
                 // 0-9
                 let i = index
                 index = skipExclude(index, target: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."])
-                return StringValue(json_.substringWithRange(i..<index)).toNumberValue()
+                return StringValue(json_.substringWithRange(i..<index)).asNumber()
             } else {
                 index = json_.endIndex
                 return ErrorValue(error: .InvalidFormat)

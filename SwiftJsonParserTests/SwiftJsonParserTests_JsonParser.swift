@@ -26,8 +26,8 @@ class SwiftJsonParser_JsonParserTests: XCTestCase {
         let parser = JsonParser().setJsonText(json)
         let result = parser.parse()
         
-        XCTAssertEqual(result.toObjectValue().at(key: "v").toStringValue().string(), "test")
-        XCTAssertEqual(result.toObjectValue().at(key: "testkey").toNumberValue().number(), 1)
+        XCTAssertEqual(result.asObject().at(key: "v").asString().string(), "test")
+        XCTAssertEqual(result.asObject().at(key: "testkey").asNumber().number(), 1)
     }
     
     func testParseArray() {
@@ -35,9 +35,9 @@ class SwiftJsonParser_JsonParserTests: XCTestCase {
         let parser = JsonParser().setJsonText(json)
         let result = parser.parse()
         
-        XCTAssertEqual(result.toArrayValue().at(index: 0).toStringValue().string(), "v")
-        XCTAssertEqual(result.toArrayValue().at(index: 1).toStringValue().string(), "test")
-        XCTAssertEqual(result.toArrayValue().at(index: 2).toStringValue().string(), "testkey")
-        XCTAssertEqual(result.toArrayValue().at(index: 3).toNumberValue().number(), 1.0)
+        XCTAssertEqual(result.asArray().at(index: 0).asString().string(), "v")
+        XCTAssertEqual(result.asArray().at(index: 1).asString().string(), "test")
+        XCTAssertEqual(result.asArray().at(index: 2).asString().string(), "testkey")
+        XCTAssertEqual(result.asArray().at(index: 3).asNumber().number(), 1.0)
     }
 }
