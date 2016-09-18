@@ -28,6 +28,8 @@ class SwiftJsonParser_JsonParserTests: XCTestCase {
         
         XCTAssertEqual(result.asObject().at(key: "v").asString().string(), "test")
         XCTAssertEqual(result.asObject().at(key: "testkey").asNumber().number(), 1)
+        XCTAssert(result.asObject().at(key: "invalidkey").wasErrorOccured())
+        XCTAssertEqual(ErrorValue.of(result.asObject().at(key: "invalidkey")), Errors.KeyNotFound)
     }
     
     func testParseArray() {

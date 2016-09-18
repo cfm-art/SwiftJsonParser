@@ -75,16 +75,16 @@ class SwiftJsonParser_JsonValuesTests: XCTestCase {
     
     // string -> array
     func testStringToArray() {
-        let s = StringValue("")
+        let s = StringValue("aa")
         let a = s.asArray()
-        XCTAssertTrue(a.typeOf() == .kError)
+        XCTAssertEqual(a.at(index: 0).asString().string(), s.string())
     }
     
     // string -> object
     func testStringToObject() {
-        let s = StringValue("")
+        let s = StringValue("bb")
         let o = s.asObject()
-        XCTAssertTrue(o.typeOf() == .kError)
+        XCTAssertEqual(o.at(key: "json").asString().string(), s.string())
     }
     
 
@@ -117,16 +117,16 @@ class SwiftJsonParser_JsonValuesTests: XCTestCase {
     
     // number -> array
     func testNumberToArray() {
-        let n = NumberValue(1)
+        let n = NumberValue(2)
         let a = n.asArray()
-        XCTAssertTrue(a.typeOf() == .kError)
+        XCTAssertEqual(a.at(index: 0).asNumber().number(), n.number())
     }
     
     // number -> object
     func testNumberToObject() {
-        let n = NumberValue(1)
+        let n = NumberValue(3)
         let o = n.asObject()
-        XCTAssertTrue(o.typeOf() == .kError)
+        XCTAssertEqual(o.at(key: "json").asNumber().number(), n.number())
     }
 
     
@@ -163,16 +163,16 @@ class SwiftJsonParser_JsonValuesTests: XCTestCase {
     
     // boolean -> array
     func testBooleanToArray() {
-        let s = BooleanValue(false)
+        let s = BooleanValue(true)
         let a = s.asArray()
-        XCTAssertTrue(a.typeOf() == .kError)
+        XCTAssertEqual(a.at(index: 0).asBoolean().boolean(), s.boolean())
     }
     
     // boolean -> object
     func testBooleanToObject() {
-        let s = BooleanValue(false)
+        let s = BooleanValue(true)
         let o = s.asObject()
-        XCTAssertTrue(o.typeOf() == .kError)
+        XCTAssertEqual(o.at(key: "json").asBoolean().boolean(), s.boolean())
     }
 
 

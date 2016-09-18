@@ -62,23 +62,24 @@ public class BooleanValue
     {
         return ErrorValue(error: Errors.NotNull)
     }
-    
+
     /// 配列[]として取得
-    /// 配列以外からの変換はエラーを返却
     /// - returns : 配列
     public func asArray() -> IArrayValue
     {
-        return ErrorValue(error: Errors.NotArray)
+        let array = ArrayValue()
+        array.add(self)
+        return array
     }
     
     /// オブジェクト{}として取得
-    /// オブジェクト以外からの変換はエラーを返却
     /// - returns : オブジェクト
     public func asObject() -> IObjectValue
     {
-        return ErrorValue(error: Errors.NotObject)
+        let object = ObjectValue()
+        object.add("json", value: self)
+        return object
     }
-
     
     /// Jsonでの文字列表現を取得する
     /// - returns : Jsonでの文字列表現

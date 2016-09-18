@@ -39,7 +39,7 @@ public class ErrorValue
     /// - returns
     public static func of(error: JsonValue) -> Errors
     {
-        return error.typeOf() == .kError
+        return error.wasErrorOccured()
                     ? (error as! ErrorValue).error()
                     : Errors.NoError
     }

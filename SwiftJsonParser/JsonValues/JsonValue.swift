@@ -47,3 +47,34 @@ public protocol JsonValue
     /// - returns : Jsonでの文字列表現
     func jsonString() -> String
 }
+
+///
+public extension JsonValue {
+    /// asString().string()のエイリアス
+    /// - returns :
+    public func description() -> String
+    {
+        return asString().string()
+    }
+    
+    /// 引数のタイプと同じかの判定
+    /// - returns :
+    public func isTypeOf(type : ValueType) -> Bool
+    {
+        return typeOf() == type
+    }
+    
+    /// エラー型かどうか
+    /// - returns :
+    public func wasErrorOccured() -> Bool
+    {
+        return isTypeOf(.kError)
+    }
+    
+    ///
+    /// - returns : 
+    public func asError() -> Errors
+    {
+        return ErrorValue.of(self)
+    }
+}
