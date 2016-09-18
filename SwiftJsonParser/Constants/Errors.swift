@@ -15,8 +15,6 @@ public enum Errors : Int
     case NoError
     
     case NotNull
-    case NotArray
-    case NotObject
     case NotNumber
     
     case NegativeIndex
