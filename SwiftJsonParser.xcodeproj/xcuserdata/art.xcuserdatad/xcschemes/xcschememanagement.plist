@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Aggregate.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SwiftJsonParser.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>6E02F3401D8E7EFD00E8E00C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EE275411D86BC0800419FC4</key>
 		<dict>
 			<key>primary</key>

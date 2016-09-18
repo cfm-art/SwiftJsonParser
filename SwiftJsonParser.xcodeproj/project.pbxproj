@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6E02F3401D8E7EFD00E8E00C /* Aggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6E02F3411D8E7EFD00E8E00C /* Build configuration list for PBXAggregateTarget "Aggregate" */;
+			buildPhases = (
+				6E02F3441D8E7F1000E8E00C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Aggregate;
+			productName = Aggregate;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6EE275461D86BC0800419FC4 /* SwiftJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE275451D86BC0800419FC4 /* SwiftJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE2754D1D86BC0800419FC4 /* SwiftJsonParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE275421D86BC0800419FC4 /* SwiftJsonParser.framework */; };
@@ -262,6 +276,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "あると";
 				TargetAttributes = {
+					6E02F3401D8E7EFD00E8E00C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					6EE275411D86BC0800419FC4 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -284,6 +301,7 @@
 			targets = (
 				6EE275411D86BC0800419FC4 /* SwiftJsonParser */,
 				6EE2754B1D86BC0800419FC4 /* SwiftJsonParserTests */,
+				6E02F3401D8E7EFD00E8E00C /* Aggregate */,
 			);
 		};
 /* End PBXProject section */
@@ -304,6 +322,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E02F3441D8E7F1000E8E00C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# ビルドする\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# iphoneos配下のframeworkをコピーする\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# iphoneos配下のswiftmoduleをコピーする #\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\n\n# lipoコマンドでUniversal binaryを作成\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# プロジェクトフォルダ配下にframeworkをコピー\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EE2753D1D86BC0800419FC4 /* Sources */ = {
@@ -352,6 +386,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6E02F3421D8E7EFD00E8E00C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E02F3431D8E7EFD00E8E00C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6EE275541D86BC0800419FC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,6 +549,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6E02F3411D8E7EFD00E8E00C /* Build configuration list for PBXAggregateTarget "Aggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E02F3421D8E7EFD00E8E00C /* Debug */,
+				6E02F3431D8E7EFD00E8E00C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6EE2753C1D86BC0800419FC4 /* Build configuration list for PBXProject "SwiftJsonParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

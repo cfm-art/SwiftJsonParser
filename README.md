@@ -68,3 +68,6 @@ print(error.asError() == Erros.KeyNotFound)
 |Object|Array|flatMapを行ったArray|
 |Null|他の型|常にNull|
 |Error|他の型|常にError|
+
+# 導入方法
+.frameworkの作り方良く分からなかったのでソースをコピペするのが良いと思います。
