@@ -66,6 +66,7 @@ public class JsonParser
                 index = skip(index, target: [",", "]"])
                 if json_[index] == "," { index = index.successor() }
             }
+            if index != json_.endIndex { index = index.successor() }
             return o
         } else if c == "{" {
             index = skipSpace(index.successor())
@@ -79,6 +80,7 @@ public class JsonParser
                 index = skip(index, target: [",", "}"])
                 if json_[index] == "," { index = index.successor() }
             }
+            if index != json_.endIndex { index = index.successor() }
             return o
         } else {
             // string/number/boolean/null
