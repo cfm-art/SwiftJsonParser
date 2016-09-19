@@ -87,4 +87,11 @@ public class NumberValue
     {
         return value_.description
     }
+    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString(level: Int, option: DeparseOptions) -> String
+    {
+        return jsonString()
+    }
 }

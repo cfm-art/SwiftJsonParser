@@ -49,6 +49,9 @@ public class JsonParser
         if let r = result_ {
             return r
         }
+        if json_.isEmpty {
+            return ErrorValue(error: .InvalidFormat)
+        }
         var index = json_.startIndex
         let result = parseImpl(&index)
         result_ = result

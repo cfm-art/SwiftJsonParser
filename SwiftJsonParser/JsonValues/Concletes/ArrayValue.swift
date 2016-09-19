@@ -128,11 +128,33 @@ public class ArrayValue
         let result = NSMutableString(capacity: values_.count * 6)
         result.appendString("[")
         values_.forEach { result.appendString($0.jsonString()); result.appendString(",") }
-        if result.hasSuffix(",") {
+        if values_.count > 0 {
             result.replaceCharactersInRange(NSRange(location: result.length - 1, length: 1), withString: "]")
         } else {
             result.appendString("]")
         }
+        return result as String
+    }
+    
+    /// Jsonでの文字列表現を取得する
+    /// - returns : Jsonでの文字列表現
+    public func jsonString(level: Int, option: DeparseOptions) -> String
+    {
+        let result = NSMutableString(capacity: values_.count * 6)
+        result.appendString("[")
+        var isFirst = true
+        
+        values_.forEach {
+            if !isFirst { result.appendString(",") }
+            isFirst = false
+
+            JsonDeparser.newline(option, output: result)
+            JsonDeparser.tab(option, level: level + 1, output: result)
+            result.appendString($0.jsonString(level + 1, option: option));
+        }
+        JsonDeparser.newline(option, output: result)
+        JsonDeparser.tab(option, level: level, output: result)
+        result.appendString("]")
         return result as String
     }
 }

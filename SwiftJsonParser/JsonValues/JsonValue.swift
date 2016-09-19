@@ -46,6 +46,12 @@ public protocol JsonValue
     /// Jsonでの文字列表現を取得する
     /// - returns : Jsonでの文字列表現
     func jsonString() -> String
+
+    /// オプションを指定してJsonでの文字列表現を取得する
+    /// - parameters level :
+    /// - parameters option :
+    /// - returns : Jsonでの文字列表現
+    func jsonString(level: Int, option: DeparseOptions) -> String
 }
 
 ///　汎用処理

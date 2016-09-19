@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6ECF27B81D8F978400BD2125 /* JsonDeparser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF27B71D8F978400BD2125 /* JsonDeparser.swift */; };
+		6ECF27BA1D8FA8DF00BD2125 /* DeparseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF27B91D8FA8DF00BD2125 /* DeparseOptions.swift */; };
 		6EE275461D86BC0800419FC4 /* SwiftJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE275451D86BC0800419FC4 /* SwiftJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE2754D1D86BC0800419FC4 /* SwiftJsonParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE275421D86BC0800419FC4 /* SwiftJsonParser.framework */; };
 		6EE275521D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE275511D86BC0800419FC4 /* SwiftJsonParserTests_JsonValues.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6ECF27B71D8F978400BD2125 /* JsonDeparser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonDeparser.swift; path = Parser/JsonDeparser.swift; sourceTree = "<group>"; };
+		6ECF27B91D8FA8DF00BD2125 /* DeparseOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeparseOptions.swift; path = Constants/DeparseOptions.swift; sourceTree = "<group>"; };
 		6EE275421D86BC0800419FC4 /* SwiftJsonParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftJsonParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE275451D86BC0800419FC4 /* SwiftJsonParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftJsonParser.h; sourceTree = "<group>"; };
 		6EE275471D86BC0800419FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,7 +163,9 @@
 		6EE2756B1D86C17D00419FC4 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF27B91D8FA8DF00BD2125 /* DeparseOptions.swift */,
 				6EE2756C1D86C19500419FC4 /* JsonParser.swift */,
+				6ECF27B71D8F978400BD2125 /* JsonDeparser.swift */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -349,10 +355,12 @@
 				6EED824B1D8D2954004B8B98 /* IArrayValue.swift in Sources */,
 				6EE275681D86C03200419FC4 /* ArrayValue.swift in Sources */,
 				6EE2756D1D86C19500419FC4 /* JsonParser.swift in Sources */,
+				6ECF27BA1D8FA8DF00BD2125 /* DeparseOptions.swift in Sources */,
 				6EED82521D8D70A9004B8B98 /* JsonEscaper.swift in Sources */,
 				6EE275621D86BFDB00419FC4 /* NumberValue.swift in Sources */,
 				6EED82491D8D293F004B8B98 /* INullValue.swift in Sources */,
 				6EE275641D86BFF400419FC4 /* BooleanValue.swift in Sources */,
+				6ECF27B81D8F978400BD2125 /* JsonDeparser.swift in Sources */,
 				6EED82411D8D27CF004B8B98 /* IStringValue.swift in Sources */,
 				6EED82471D8D291F004B8B98 /* IBooleanValue.swift in Sources */,
 				6EED82431D8D28B8004B8B98 /* ErrorValue.swift in Sources */,
@@ -556,6 +564,7 @@
 				6E02F3431D8E7EFD00E8E00C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EE2753C1D86BC0800419FC4 /* Build configuration list for PBXProject "SwiftJsonParser" */ = {
 			isa = XCConfigurationList;

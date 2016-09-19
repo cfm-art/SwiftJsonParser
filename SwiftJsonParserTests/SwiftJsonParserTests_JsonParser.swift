@@ -42,4 +42,16 @@ class SwiftJsonParser_JsonParserTests: XCTestCase {
         XCTAssertEqual(result.asArray().at(index: 2).asString().string(), "testkey")
         XCTAssertEqual(result.asArray().at(index: 3).asNumber().number(), 1.0)
     }
+    
+    func testDeparseObject() {
+        let root = ObjectValue()
+        root.add("key1", value: StringValue("value1"))
+        root.add("key2", value: NumberValue(1.0))
+        
+        let options = DeparseOptions().setTab("  ").setNewline(.kCrLf)
+        let deparser = JsonDeparser().setJsonObject(root).setOptions(options)
+        
+        let result = deparser.deparse()
+        XCTAssertEqual(result, "{\r\n  \"key1\":\"value1\",\r\n  \"key2\":1.0\r\n}")
+    }
 }

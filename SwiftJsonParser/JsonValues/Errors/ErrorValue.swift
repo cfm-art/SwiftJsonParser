@@ -35,6 +35,16 @@ public class ErrorValue
     public override func typeOf() -> ValueType { return .kError }
 
     ///
+    public override func jsonString() -> String {
+        return ""
+    }
+    
+    ///
+    public override func jsonString(level: Int, option: DeparseOptions) -> String {
+        return ""
+    }
+    
+    ///
     /// - parameter error :
     /// - returns
     public static func of(error: JsonValue) -> Errors
