@@ -28,6 +28,43 @@ public class JsonEscaper
         
         // \をそのまま\\に置き換えると\uXXXXが\\uXXXXになるので注意
         
+        let result = NSMutableString(capacity: value.characters.count)
+
+        for i in value.startIndex..<value.endIndex {
+            let c = value[i]
+            switch c {
+                case "\\", "/", "\"":
+                    result.appendString("\\\(c)")
+                    break;
+                case "\n":
+                    result.appendString("\\n")
+                    break;
+                case "\r":
+                    result.appendString("\\r")
+                    break;
+                case "\t":
+                    result.appendString("\\t")
+                    break;
+                case "\u{0008}":
+                    result.appendString("\\b")
+                    break;
+                case "\u{000c}":
+                    result.appendString("\\f")
+                    break;
+                default:
+                    result.appendString("\(c)")
+                    break;
+            }
+        }
+
+        let pattern = "\\\\(u[¥da-fA-F]{4})"
+        let replace = "$1"
+        return result.stringByReplacingOccurrencesOfString(pattern,
+                                                           withString: replace,
+                                                           options: NSStringCompareOptions.RegularExpressionSearch,
+                                                           range: NSRange(location: 0, length: result.length))
+        
+        /*
         var result: String
         result = value.stringByReplacingOccurrencesOfString("\\", withString: "\\\\")       // \
         result = result.stringByReplacingOccurrencesOfString("/", withString: "\\/")        // /
@@ -44,6 +81,6 @@ public class JsonEscaper
                                                              withString: replace,
                                                              options: NSStringCompareOptions.RegularExpressionSearch,
                                                              range: nil)
-        return result
+        return result*/
     }
 }
