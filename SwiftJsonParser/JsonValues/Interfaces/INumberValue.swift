@@ -8,10 +8,12 @@
 
 import Foundation
 
-///
+/// 数値型
 @objc
 public protocol INumberValue
     : JsonValue
 {
+    /// 中身をアンラップする
+    /// - returns : 中身
     func number() -> Double
 }

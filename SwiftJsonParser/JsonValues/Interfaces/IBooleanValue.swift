@@ -8,10 +8,12 @@
 
 import Foundation
 
-///
+/// 真偽値型
 @objc
 public protocol IBooleanValue
     : JsonValue
 {
+    /// 中身をアンラップする
+    /// - returns : 中身
     func boolean() -> Bool
 }

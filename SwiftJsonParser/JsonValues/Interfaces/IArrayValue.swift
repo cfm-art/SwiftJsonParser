@@ -8,28 +8,30 @@
 
 import Foundation
 
-///
+/// 配列型
 @objc
 public protocol IArrayValue
     : JsonValue
 {
-    ///
-    /// - returns :
+    /// 中身をアンラップする
+    /// - returns : 中身
     func array() -> [JsonValue]
     
-    ///
+    /// 要素数
     /// - returns :
     func count() -> Int
     
-    ///
-    /// - parameter index:
+    /// 要素を取得
+    /// - parameter index: 添字
     /// - returns
     func at(index index: Int) -> JsonValue
     
-    ///
+    /// 要素を取得
+    /// - parameter index: 添字
+    /// - returns
     subscript(index: Int) -> JsonValue { get }
     
-    ///
+    /// 要素の追加
     /// - paramter value:
     func add(value: JsonValue)
     

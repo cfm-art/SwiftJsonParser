@@ -8,10 +8,12 @@
 
 import Foundation
 
-///
+/// 文字列
 @objc
 public protocol IStringValue
     : JsonValue
 {
+    /// 中身をアンラップする
+    /// - returns : 中身
     func string() -> String
 }

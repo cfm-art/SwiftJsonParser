@@ -22,8 +22,8 @@ public class JsonParser
     /// パース結果
     private var result_: JsonValue? = nil
     
-    ///
-    /// - parameter json:
+    /// パースの対象文字列の指定
+    /// - parameter json: 対象文字列
     /// - returns : self
     public func setJsonText(json: String) -> JsonParser
     {
@@ -32,8 +32,8 @@ public class JsonParser
         return self
     }
     
-    ///
-    /// - paramter options:
+    /// 解析オプションの指定
+    /// - paramter options: オプション
     /// - returns : self
     public func setOption(options: [ParseOption]) -> JsonParser
     {
@@ -42,26 +42,33 @@ public class JsonParser
         return self
     }
     
-    ///
-    /// - returns :
+    /// 設定された文字列を解析しオブジェクトを返却する
+    /// - returns : 解析結果
     public func parse() -> JsonValue
     {
         if let r = result_ {
             return r
         }
         var index = json_.startIndex
-        return parseImpl(&index)
+        let result = parseImpl(&index)
+        result_ = result
+        return result
     }
     
+    /// パースの実態
+    /// - parameter index: 現在解析している文字位置
+    /// - returns : 結果
     private func parseImpl(inout index: String.Index) -> JsonValue
     {
         index = skipSpace(index)
         let c = json_[index]
 
         if c == "[" {
+            // 配列
             index = skipSpace(index.successor())
             let o = ArrayValue()
             while json_[index] != "]" {
+                // 再起で中身を解析
                 o.add(parseImpl(&index))
                 index = skip(index, target: [",", "]"])
                 if json_[index] == "," { index = index.successor() }
@@ -69,13 +76,16 @@ public class JsonParser
             if index != json_.endIndex { index = index.successor() }
             return o
         } else if c == "{" {
+            // オブジェクト
             index = skipSpace(index.successor())
             let o = ObjectValue()
             while json_[index] != "}" {
+                // キー取得
                 let i = skip(index, target: ["\""]).successor()
                 index = skipLiteral(i)
                 let key = json_.substringWithRange(i..<index)
                 index = skip(index.successor(), target: [":"]).successor()
+                // 再起で中身を解析
                 o.add(key, value: parseImpl(&index))
                 index = skip(index, target: [",", "}"])
                 if json_[index] == "," { index = index.successor() }
@@ -99,18 +109,23 @@ public class JsonParser
                 let e = skipLiteral(i)
                 index = e.successor()
                 return StringValue(json_.substringWithRange(i..<e))
-            } else if c >= "0" && c <= "9" {
+            } else if c >= "0" && c <= "9" || c == "-" {
                 // 0-9
                 let i = index
-                index = skipExclude(index, target: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."])
+                index = skipExclude(index, target: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "-", "e", "E"])
                 return StringValue(json_.substringWithRange(i..<index)).asNumber()
             } else {
+                // その他(Json型でない)
                 index = json_.endIndex
                 return ErrorValue(error: .InvalidFormat)
             }
         }
     }
     
+    /// null/false/true
+    /// - parameter index: 解析位置
+    /// - parameter key: 判定文字
+    /// - parameter value: 一致時に返却する値
     private func parseConstant(inout index: String.Index, key: String, value: JsonValue) -> JsonValue
     {
         let next = index.advancedBy(key.characters.count)
@@ -123,6 +138,9 @@ public class JsonParser
         return value
     }
     
+    /// 文字列型の解析
+    /// - parameter index: 解析位置
+    /// - returns : 文字列型の次位置
     private func skipLiteral(index: String.Index) -> String.Index
     {
         var i = index
@@ -144,6 +162,10 @@ public class JsonParser
         return i
     }
     
+    /// 指定の文字が出るまで進める
+    /// - parameter index : 解析位置
+    /// - parameter target : 読み飛ばす指定文字
+    /// - returns : 読み飛ばし後位置
     private func skip(index: String.Index, target: [Character]) -> String.Index
     {
         var i = index
@@ -158,6 +180,10 @@ public class JsonParser
         return i
     }
 
+    /// 指定の文字を読み飛ばす
+    /// - parameter index: 解析位置
+    /// - parameter target: 読み飛ばす文字
+    /// - returns : 読み飛ばした後位置
     private func skipExclude(index: String.Index, target: [Character]) -> String.Index
     {
         var i = index
@@ -172,6 +198,9 @@ public class JsonParser
         return i
     }
     
+    /// 空白文字(システム文字)を読み飛ばす
+    /// - parameter index: 解析位置
+    /// - returns : 読み飛ばした後位置
     private func skipSpace(index: String.Index) -> String.Index
     {
         var i = index

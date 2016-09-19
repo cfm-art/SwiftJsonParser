@@ -12,18 +12,18 @@ import Foundation
 @objc
 public enum ValueType : Int
 {
-    ///
+    /// オブジェクト
     case kObject
-    ///
+    /// 配列
     case kArray
-    ///
+    /// 文字列
     case kString
-    ///
+    /// 数値
     case kNumber
-    ///
+    /// 真偽値
     case kBoolean
-    ///
+    /// null
     case kNull
-    ///
+    /// エラー
     case kError
 }

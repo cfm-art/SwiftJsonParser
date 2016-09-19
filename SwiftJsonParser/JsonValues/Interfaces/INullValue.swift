@@ -8,7 +8,7 @@
 
 import Foundation
 
-///
+/// null
 @objc
 public protocol INullValue
     : JsonValue
